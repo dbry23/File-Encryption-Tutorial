@@ -151,19 +151,19 @@ namespace Tutorial01
         }
 </code></pre>
 
-<p>We can write directly to the destination stream (not the <code>CryptoStream</code>) before the ecryption that happens in the call to <code>CopyTo</code>. That way, the IV is not encrypted, but is right at the beginning of the destination file.</p>
+<p>We can write directly to the destination stream (not the <code>CryptoStream</code>) before the encryption that happens in the call to <code>CopyTo</code>. That way, the IV is not encrypted, but is right at the beginning of the destination file.</p>
 
 <p>Now we are looking pretty good. We encrypt a file. We save the IV in the file where it is easy to find and we display the key, so you save it in a secret place until it is needed to decrypt the file.</p>
 
 <h1>
 <a id="tutorial-2" class="anchor" href="#tutorial-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tutorial 2</h1>
 
-<p>In this tutorial we decrypt an ecrypted file, restoring it to its original state. To do this, we need three things: the key used to encrypt the file, the IV used to encrypt the file, and the encrypted file. From our last tutorial, we display the key in the console after encrypting the file and we store the IV at the front of the file. So we have everything we need.</p>
+<p>In this tutorial we decrypt an encrypted file, restoring it to its original state. To do this, we need three things: the key used to encrypt the file, the IV used to encrypt the file, and the encrypted file. From our last tutorial, we display the key in the console after encrypting the file and we store the IV at the front of the file. So we have everything we need.</p>
 
 <h2>
 <a id="getting-ready" class="anchor" href="#getting-ready" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Ready</h2>
 
-<p>Our current program accepts two filenames as command line arguments. Let's modify it to accept a third argument, the decryption key. Because it helps us enderstand how the program works, let's go ahead and update the help text in the program.</p>
+<p>Our current program accepts two filenames as command line arguments. Let's modify it to accept a third argument, the decryption key. Because it helps us understand how the program works, let's go ahead and update the help text in the program.</p>
 
 <pre><code>        if (args.Length &lt; 2 || args.Length &gt; 3)
         {
@@ -177,7 +177,7 @@ namespace Tutorial01
         }
 </code></pre>
 
-<p>Notice that we now allow for two or three arguments. If the third argument is provided, we use it as the key for decrypting the source file. Now we are ready to get the values from the coomand line.</p>
+<p>Notice that we now allow for two or three arguments. If the third argument is provided, we use it as the key for decrypting the source file. Now we are ready to get the values from the command line.</p>
 
 <pre><code>        var sourceFilename = args[0];
         var destinationFilename = args[1];
